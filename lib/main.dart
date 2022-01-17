@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: 'https://fuwiwcurvnlzpgmrclgv.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJvbGUiOiJzZXJ2aWNlX3JvbGUiLCJpYXQiOjE2NDI0MzQzMDAsImV4cCI6MTk1ODAxMDMwMH0.8cruAkaBhNtajMjghNqyP_hafpoV77rqs-K60Lbet9Y',
+  );
   runApp(const MyApp());
 }
 
@@ -65,6 +73,30 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+                color: Colors.grey[100],
+                borderRadius: BorderRadius.circular(15)),
+            margin: EdgeInsets.symmetric(horizontal: 25),
+            width: MediaQuery.of(context).size.width,
+            height: 50,
+            child: const TextField(
+              decoration: InputDecoration(
+                hintText: 'password',
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text('Sign In'),
+          )
         ],
       ),
     );
